@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Pill App</title>
+        <style>
+            a {text-decoration: none; color: black;}
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="600" height="600"
+            style="background-color:none">
+        </canvas>
+        <script type="text/javascript" src="clock.js"></script>
+        <ul></ul>
+        <% todolist.forEach(function(todo, index) { %>
+          
+            <li><img style="width:20px;height:20px" src="/public/media/pill.png">  
+                <%= todo %> <a href="/todo/delete/<%= index %>">✘</a></li>
+        <% }); %>
+        </ul>
+
+        <form action="/todo/add/" method="post">
+            <p>
+                <label for="newtodo">Add a new pill and when you need to take it</label>
+                <br>
+                <input type="text" name="pillname" id="pillname" autofocus />
+                <input type="time" name="pilltime" id="pilltime"/>
+                <input type="submit" />
+            </p>
+        </form>
+        
+    </body>
+</html>
