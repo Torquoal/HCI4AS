@@ -1,41 +1,147 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>Pill App</title>
-        <link rel="stylesheet" type="text/css" href="/public/stylesheet.css">
-    </head>
 
-    <body>
-        <div id="phonescreen">
-        
-            <canvas id="canvas" width="500" height="500"
-                style="background-color:white">
-            </canvas>
-         
-            <div id="list">
-                <ul>
-                    <% todolist.forEach(function(todo, index) { %>
-                    
-                        <li><img id="pill" style="width:20px;height:20px" src="/public/media/pill.png">  
-                            <%= todo %> <a href="/todo/delete/<%= index %>">✘</a>
-                        </li>
-                    <% }); %>
-                </ul>
+<head>
+    <title>Pill App</title>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheet.css">
+</head>
 
-                <form action="/todo/add/" method="post">
-                    <p>
-                        <label id="addpill" for="newtodo">Add a new pill and when you need to take it</label>
-                        <br>
-                        <input type="text" name="pillname" id="pillname" autofocus />
-                        <input type="time" name="pilltime" id="pilltime"/>
-                        <input type="submit" />
-                    </p>
-                </form>
+<body>
+    <div id="phonescreen">
+        <canvas id="canvas" width="450" height="450" position="absolute">
+        </canvas>
+        <div id="bottombar">
+        </div>
+    </div>
+
+    <div id="abovescreen">
+        <div id="titlebar">
+            <img id="tray" src="/public/media/tray.png">
+            <div id="alarm" class="modal">
+                <div class="modal-content">
+                    <span class="close">
+                        <div id="closeButton">
+                            <p id="closeText">Close</p>
+                        </div>
+                    </span>
+                    <p id="alarmText">Time to take your Paracetamol</p>
+                </div>
+            </div>
+        </div>
+        <div id="loestrin">
+            <div class="tooltip">
+                <span class="tooltiptext">
+                    Name: Loestrin
+                    <br>
+                    <br> Time: 09:00
+                    <br>
+                    <br> Water?: Yes
+                    <br>
+                    <br> How Many To Take?: 1
+                    <br>
+                    <br> How Many Left?: 58
+                    <br>
+
+                </span>
+                <img class="pill" src="/public/media/pill.png">
             </div>
         </div>
 
-        <script type="text/javascript" src="/public/clock.js"></script>
-        
-    </body> 
+        <div id="paracetamol">
+            <div class="tooltip">
+                <span class="tooltiptext">
+                    Name: Paracetamol
+                    <br>
+                    <br> Time: 14:00
+                    <br>
+                    <br> Water?: No
+                    <br>
+                    <br> How Many To Take?: 2
+                    <br>
+                    <br> How Many Left?: 12
+                    <br>
+
+                </span>
+                <img class="pill" src="/public/media/pill.png">
+            </div>
+        </div>
+
+        <div id="list">
+
+            <div id="userpill">
+                <% todolist.forEach(function(todo, index) { %>
+                    <div class="tooltip">
+                        <span class="tooltiptext">
+                            Name:
+                            <%= todo[0] %>
+                                <br>
+                                <br> Time:
+                                <%= todo[1] %>
+                                    <br>
+                                    <br> Water?:
+                                    <%= todo[2] %>
+                                        <br>
+                                        <br> How Many To Take?:
+                                        <%= todo[3] %>
+                                            <br>
+                                            <br> How Many Left?:
+                                            <%= todo[4] %>
+                                                <br>
+                                                <br> Click Here to Remove Pill:
+                                                <a href="/todo/delete/<%= index %>">✘</a>
+                        </span>
+                        <img class="pill" src="/public/media/pill.png">
+                    </div>
+                    <% }); %>
+            </div>
+
+        </div>
+
+
+        <div class="popup" onclick="formpopup()">
+            <img id="addBtn" src="/public/media/AddButton.png">
+            <span class="popuptext" id="popup1">
+                <form action="/todo/add/" method="post">
+                    <p>
+                        Press Tab to enter information!
+                        <br>
+                        <br> Add the name of the pill:
+                        <br>
+                        <input type="text" name="pillname" id="pillname" autofocus />
+                        <br> Add the time at which you take this pill:
+                        <br>
+
+                        <input type="time" name="pilltime" id="pilltime" />
+                        <br> Do you need to take this pill with water?:
+                        <br>
+                        <input type="text" name="water" id="water" />
+                        <br> How many pills do you need to take at once?:
+                        <br>
+                        <input type="quantity" name="quantity" id="quantity" />
+                        <br> How many pills do you currently have left?:
+                        <br>
+                        <input type="total" name="total" id="total" />
+                        <br>
+                        <input type="submit" />
+                    </p>
+                </form>
+            </span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/public/clock.js"></script>
+    <script id="annyang" src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script type="text/javascript" src='/public/modalalert.js'></script>
+
+
+    <script>
+        // When the user clicks on div, open the popup
+        function formpopup() {
+            var popup = document.getElementById("popup1");
+            popup.classList.toggle("show");
+        }
+    </script>
+
+</body>
+
 </html>
