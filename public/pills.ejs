@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Pill App</title>
     <link rel="stylesheet" type="text/css" href="/public/stylesheet.css">
 </head>
-
 <body>
+
+    <!-- div holding cnvas to draw clock upon, background colours,  bottom bar and icons-->
+
     <div id="phonescreen">
         <canvas id="canvas" width="450" height="450" position="absolute">
         </canvas>
-        <div id="bottombar">
-        </div>
+        <div id="bottombar"></div>
+        <div id="square"></div>
+        <img id="clock" src="/public/media/clockicon.png">
+        <img id="calendar" src="/public/media/calendar.png">
     </div>
+
+    <!-- div holding pills, including 2 hardcoded pills and all user pills
+    which are hard-coded at 5'o'clock for simulated behavioural reasons -->
 
     <div id="abovescreen">
         <div id="titlebar">
-            <img id="tray" src="/public/media/tray.png">
             <div id="alarm" class="modal">
                 <div class="modal-content">
                     <span class="close">
@@ -41,12 +46,10 @@
                     <br>
                     <br> How Many Left?: 58
                     <br>
-
                 </span>
-                <img class="pill" src="/public/media/pill.png">
+                <img class="pill" src="/public/media/loestrin.png">
             </div>
         </div>
-
         <div id="paracetamol">
             <div class="tooltip">
                 <span class="tooltiptext">
@@ -60,48 +63,45 @@
                     <br>
                     <br> How Many Left?: 12
                     <br>
-
                 </span>
-                <img class="pill" src="/public/media/pill.png">
+                <img class="pill" src="/public/media/paracetamol.png">
             </div>
         </div>
-
         <div id="list">
-
             <div id="userpill">
-                <% todolist.forEach(function(todo, index) { %>
+                <% pillslist.forEach(function(pills, index) { %>
                     <div class="tooltip">
                         <span class="tooltiptext">
                             Name:
-                            <%= todo[0] %>
+                            <%= pills[0] %>
+                            <br>
+                            <br> Time:
+                            <%= pills[1] %>
                                 <br>
-                                <br> Time:
-                                <%= todo[1] %>
-                                    <br>
-                                    <br> Water?:
-                                    <%= todo[2] %>
-                                        <br>
-                                        <br> How Many To Take?:
-                                        <%= todo[3] %>
-                                            <br>
-                                            <br> How Many Left?:
-                                            <%= todo[4] %>
-                                                <br>
-                                                <br> Click Here to Remove Pill:
-                                                <a href="/todo/delete/<%= index %>">✘</a>
+                                <br> Water?:
+                                <%= pills[2] %>
+                                <br>
+                                <br> How Many To Take?:
+                                <%= pills[3] %>
+                                <br>
+                                <br> How Many Left?:
+                                <%= pills[4] %>
+                                <br>
+                                <br> Click Here to Remove Pill:
+                                <a href="/pills/delete/<%= index %>">✘</a>
                         </span>
-                        <img class="pill" src="/public/media/pill.png">
+                        <img class="pill" src="/public/media/apri.png">
                     </div>
                     <% }); %>
             </div>
-
         </div>
 
-
-        <div class="popup" onclick="formpopup()">
-            <img id="addBtn" src="/public/media/AddButton.png">
+        <!-- Form for adding pills, as popup from '+' Button -->
+    
+        <div class="popup">
+            <img id="addBtn" src="/public/media/AddButton.png" onclick="formpopup()">
             <span class="popuptext" id="popup1">
-                <form action="/todo/add/" method="post">
+                <form action="/pills/add/" method="post">
                     <p>
                         Press Tab to enter information!
                         <br>
@@ -122,6 +122,8 @@
                         <br>
                         <input type="total" name="total" id="total" />
                         <br>
+                        <br>
+                        <input type="button" onclick="formpopup()" value="Cancel" />
                         <input type="submit" />
                     </p>
                 </form>
@@ -129,13 +131,11 @@
         </div>
     </div>
 
+    <!-- Scripts for template, including clock script, annyang API and modal script -->
     <script type="text/javascript" src="/public/clock.js"></script>
     <script id="annyang" src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script type="text/javascript" src='/public/modalalert.js'></script>
-
-
     <script>
-        // When the user clicks on div, open the popup
         function formpopup() {
             var popup = document.getElementById("popup1");
             popup.classList.toggle("show");

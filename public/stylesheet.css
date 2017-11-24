@@ -3,9 +3,9 @@
     top: 5%;
     left: 50%;
     transform: translate(-50%, -0%);
-    background-color: lightblue;
     height: 820px;
     width: 450px; 
+    background-color: lightblue;
     border-radius: 10px;
     font: 17px arial, sans-serif;
 }
@@ -18,33 +18,60 @@
     
 }
 
+#square {
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 737px;
+    left: 102px;
+    background-color:#75a5f1;
+    border-radius: 10px;
+}
+
+#clock {
+    transform: scale(0.3);
+    position: fixed;
+    top:675px;
+    left:40px;
+    
+}
+
+#calendar {
+    transform: scale(0.3);
+    position: fixed;
+    top:675px;
+    left:210px;
+    
+}
+
 #titlebar {
     border-radius: 10px 10px 0px 0px;
     width:450px;
     height:70px;
     background-color:#3b80ef;
+    
+}
+
+#titletext {
+    color: rgb(255, 255, 255);
+    font: 28px arial, sans-serif;
+    text-align: center;
 }
 
 #bottombar {
     position:fixed;
-    top:91%;
+    top:89%;
     border-radius: 0px 0px 10px 10px;
     width:450px;
-    height:80px;
+    height:90px;
     background-color:#3b80ef;
     
 }
 
 #canvas{
    position: fixed;
-   top:9%;
+   top:100px;
     background-color:transparent;
-}
-
-#titletext {
-    text-decoration-color: white;
-    top:50%;
-    left:50%;
 }
 
 #addBtn{
@@ -61,7 +88,6 @@
     height:25px;
 }
 
-/* Popup container - can be anything you want */
 .popup {
     position: absolute;
     left:50%;
@@ -74,7 +100,6 @@
     user-select: none;
 }
 
-/* The actual popup */
 .popup .popuptext {
     visibility: hidden;
     width: 400px;
@@ -90,7 +115,6 @@
     transform: translate(-50%, -0%);
 }
 
-/* Popup arrow */
 .popup .popuptext::after {
     content: "";
     position: absolute;
@@ -102,14 +126,12 @@
     border-color: rgb(235, 235, 235) transparent transparent transparent;
 }
 
-/* Toggle this class - hide and show the popup */
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
 }
 
-/* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
     to {opacity: 1;}
@@ -134,7 +156,6 @@
     border-radius: 6px;
     padding: 5px 0;
     
-    /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: -5px;
@@ -145,32 +166,29 @@
     visibility: visible;
 }
 
-/* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: -1;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
     }
     
-    /* Modal Content/Box */
+    
 .modal-content {
-    background-color: #fefefe;
-    margin: 3% auto; /* 15% from the top and centered */
+    background-color: #b33e3e;
+    margin: 3% auto; 
     padding: 10px;
     border: 1px solid #888;
     border-radius: 10px;
-    width: 90%; /* Could be more or less, depending on screen size */
+    width: 90%; 
     height: 70px;    
 }
-    
-    /* The Close Button */
 
     
 .close:hover,
@@ -181,7 +199,7 @@
     }
 
 #alarmText {
-    color: black;
+    color: rgb(255, 255, 255);
     font: 20px arial, sans-serif;
     
 }
@@ -193,7 +211,7 @@
     border-radius: 0px 10px 10px 0px;
     width:120px;
     height:90px;
-    background-color:#bebebe;
+    background-color:#bb0000;
     
 }
 
@@ -207,21 +225,43 @@
     z-index: 1;
     position: absolute;
     left:370px;
-    top: 200px;
+    top: 230px;
+}
+
+#backingcircle2{
+    position: absolute;
+    top: 123px;
+    left: -27px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    border-radius: 150px;
+   
+}
+
+#circle {
+    width: 100px;
+    height: 100px;
+    background: white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
 }
 
 #loestrin{
     z-index: 1;
     position: absolute;
-    left:35px;
-    top: 280px;
+    left:32px;
+    top: 310px;
 }
 
 #userpill{
     z-index: 1;
     position: absolute;
     left:310px;
-    top: 440px;
+    top: 470px;
 }
 
 #abovescreen{
@@ -235,14 +275,10 @@
     font: 17px arial, sans-serif;
 }
 
+.pill{
+    transform: scale(1.3);
+}
 
-#abovescreen2{
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -0%);
-    height: 820px;
-    width: 450px; 
-    border-radius: 10px;
-    font: 17px arial, sans-serif;
+.pill2{
+    transform: scale(0.22);
 }

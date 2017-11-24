@@ -12,6 +12,7 @@ function drawClock() {
 }
 
 function drawFace(ctx, radius) {
+    radius = radius * 1
     var grad;
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, 2 * Math.PI);
@@ -21,6 +22,7 @@ function drawFace(ctx, radius) {
     ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
     ctx.fillStyle = '#333';
     ctx.fill();
+    radius = radius / 1
 }
 
 function drawNumbers(ctx, radius) {
