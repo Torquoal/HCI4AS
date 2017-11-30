@@ -224,16 +224,42 @@
 #paracetamol{
     z-index: 1;
     position: absolute;
-    left:370px;
+    left:366px;
     top: 230px;
+}
+
+#backingcircle1{
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    width: 41px;
+    height: 42px;
+    background: white;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    border-radius: 150px;
+   
 }
 
 #backingcircle2{
     position: absolute;
-    top: 123px;
-    left: -27px;
-    width: 20px;
-    height: 20px;
+    top: -6px;
+    left: -7px;
+    width: 41px;
+    height: 41px;
+    background: white;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    border-radius: 150px;
+   
+}
+
+#backingcircle3{
+    position: absolute;
+    top: -8px;
+    left: -7px;
+    width: 41px;
+    height: 41px;
     background: white;
     -moz-border-radius: 150px;
     -webkit-border-radius: 150px;
@@ -253,15 +279,15 @@
 #loestrin{
     z-index: 1;
     position: absolute;
-    left:32px;
+    left:35px;
     top: 310px;
 }
 
 #userpill{
     z-index: 1;
     position: absolute;
-    left:310px;
-    top: 470px;
+    left:300px;
+    top: 465px;
 }
 
 #abovescreen{
